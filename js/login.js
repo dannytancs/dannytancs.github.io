@@ -1,3 +1,0 @@
-function login(user, pass) {
-
-}
