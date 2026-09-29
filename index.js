@@ -18333,7 +18333,7 @@ Error generating stack: ` + o.message + `
                 className: "relative min-h-screen flex flex-col items-center justify-center py-8 px-6 overflow-hidden bg-background",
                 children: [m.jsx("audio", {
                     ref: o,
-                    src: "/assets/media/background-music.m4a",
+                    src: "/assets/media/background-music.mp3",
                     loop: !0,
                     preload: "auto",
                     muted: t
