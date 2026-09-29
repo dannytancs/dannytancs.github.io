@@ -31164,7 +31164,6 @@ END:VCALENDAR`
             const [t, r] = y.useState(!1)
                 , i = y.useRef(!1)
                 , a = 800
-                , displayMs = 2500
                 , c = () => {
                     i.current || (i.current = !0,
                         r(!0),
@@ -31172,11 +31171,6 @@ END:VCALENDAR`
                             e()
                         }, a))
                 };
-
-            y.useEffect(() => {
-                const id = setTimeout(c, displayMs);
-                return () => clearTimeout(id);
-            }, []);
 
             return m.jsx("div", {
                 className: `fixed inset-0 z-50 cursor-pointer pointer-events-${t ? "none" : "auto"}`,
