@@ -18340,7 +18340,7 @@ Error generating stack: ` + o.message + `
                 }), m.jsxs("div", {
                     className: "absolute inset-0 w-full h-full",
                     children: [m.jsx("video", {
-                        src: "/assets/media/background-wedding.mp4",
+                        src: "/assets/media/background-wedding.mov",
                         autoPlay: !0,
                         loop: !0,
                         muted: !0,
