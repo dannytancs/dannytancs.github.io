@@ -31159,36 +31159,25 @@ END:VCALENDAR`
         , U2 = () => {
             return null;
         }
-        , B2 = ({ onComplete: e }) => {
+        ,
+        B2 = ({ onComplete: e }) => {
             const [t, r] = y.useState(!1)
-                , [n, s] = y.useState(!1)
-                , o = y.useRef(null)
                 , i = y.useRef(!1)
                 , a = 800
-                , l = .25
+                , displayMs = 2500
                 , c = () => {
                     i.current || (i.current = !0,
                         r(!0),
                         setTimeout(() => {
                             e()
-                        }
-                            , a))
-                }
-                , u = () => {
-                    const b = o.current;
-                    b && b.duration && b.duration - b.currentTime <= l && c()
-                }
-                , d = () => {
-                    o.current && (o.current.currentTime = .1)
-                }
-                , h = () => {
-                    o.current && o.current.currentTime === 0 && (o.current.currentTime = .1)
-                }
-                , f = () => {
-                    !n && o.current && (s(!0),
-                        o.current.play())
-                }
-                ;
+                        }, a))
+                };
+
+            y.useEffect(() => {
+                const id = setTimeout(c, displayMs);
+                return () => clearTimeout(id);
+            }, []);
+
             return m.jsx("div", {
                 className: `fixed inset-0 z-50 cursor-pointer pointer-events-${t ? "none" : "auto"}`,
                 style: {
@@ -31196,23 +31185,17 @@ END:VCALENDAR`
                     transition: `opacity ${a}ms cubic-bezier(0.4, 0, 0.2, 1)`,
                     opacity: t ? 0 : 1
                 },
-                onClick: f,
-                children: m.jsx("video", {
-                    ref: o,
-                    src: "/assets/media/intro-video.mp4#t=0.1",
+                onClick: c,
+                children: m.jsx("img", {
+                    src: "/assets/media/e&d.png",
+                    alt: "",
                     className: "w-full h-full object-cover",
                     style: {
                         transition: `transform ${a}ms cubic-bezier(0.4, 0, 0.2, 1)`,
                         transform: t ? "scale(1.05)" : "scale(1)",
                         backgroundColor: "#f6f4f2"
                     },
-                    playsInline: !0,
-                    preload: "auto",
-                    muted: !0,
-                    onLoadedMetadata: d,
-                    onLoadedData: h,
-                    onTimeUpdate: u,
-                    onEnded: c
+                    draggable: !1
                 })
             })
         }
