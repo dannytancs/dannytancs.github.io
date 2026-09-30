@@ -18081,7 +18081,7 @@ Error generating stack: ` + o.message + `
             gifts: {
                 title: "Gifts",
                 description: "Your presence is what matters most to us.",
-                description2: "If you wish to give us a gift, you can do so in the way that suits you best.",
+                description2: " If you wish to give us a gift, you can do so in the way that suits you best.",
                 contribution: "Contribution",
                 cashOption: "If you prefer, the gift can be in cash.",
                 transferOption: "If it suits you better, you can also make a bank transfer:",
@@ -18339,7 +18339,9 @@ Error generating stack: ` + o.message + `
                     children: [m.jsx("p", {
                         className: `text-xs md:text-sm tracking-[0.3em] uppercase mb-3 text-hero opacity-0 ${n ? "animate-luxury-reveal" : ""}`,
                         style: n ? {
-                            animationDelay: "0s"
+                            animationDelay: "0s",
+                            fontWeight: "bold",
+                            fontSize: "small"
                         } : void 0,
                         children: a.hero.gettingMarried
                     }), m.jsxs("h1", {
@@ -18376,7 +18378,7 @@ Error generating stack: ` + o.message + `
                         style: n ? {
                             animationDelay: "0.5s",
                             "font-weight": "bold",
-                            "font-size": "medium",
+                            "font-size": "large",
                         } : void 0,
                         children: a.hero.date
                     })]
@@ -30681,36 +30683,36 @@ ${v}`
                         });
                         const formUrl =
                         "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeJljSTGoKJTRfNN9gEogi_2-6-aZ8JhjZzQUw09MolY3BsOg/formResponse";
-                    
-                    const formData = new URLSearchParams();
-                    
-                    formData.append("entry.1165050466", o.name.trim()); // Full name
-                    formData.append("entry.1767371813", o.email.trim()); // Email
-                    formData.append("entry.479344532", h.length > 0 ? h.join(", ") : ""); // Allergy
-                    formData.append("entry.1200722482", o.message.trim()); // Message
-                    
-                    // Attendance
-                    formData.append("entry.1424325282", o.attendance);
-                    formData.append("entry.1424325282_sentinel", "");
-                    
-                    // Number of guests
-                    formData.append("entry.919998793", String(parseInt(o.guests, 10)));
-                    formData.append("entry.919998793_sentinel", "");
-                    
-                    // Google Forms submission metadata
-                    formData.append("dlut", String(Date.now()));
-                    formData.append("hud", "true");
-                    formData.append("fvv", "1");
-                    formData.append("partialResponse", "[null,null,\"-6192526181222947061\"]");
-                    formData.append("pageHistory", "0");
-                    formData.append("fbzx", "-6192526181222947061");
-                    formData.append("submissionTimestamp", String(Date.now()));
-                    
-                    await fetch(formUrl, {
+                      
+                      const formData = new URLSearchParams();
+                      
+                      formData.append("entry.1165050466", o.name.trim());
+                      formData.append("entry.1767371813", o.email.trim());
+                      formData.append(
+                        "entry.479344532",
+                        h.length > 0 ? h.join(", ") : ""
+                      );
+                      formData.append("entry.1200722482", o.message.trim());
+                      
+                      // Google Form choice
+                      formData.append("entry.1424325282", o.attendance);
+                      formData.append("entry.1424325282_sentinel", "");
+                      
+                      // Guest count
+                      formData.append("entry.919998793", o.attendance === "no" ? 0 :String(parseInt(o.guests, 10)));
+                      formData.append("entry.919998793_sentinel", "");
+                      
+                      formData.append("fvv", "1");
+                      formData.append("pageHistory", "0");
+                      
+                      await fetch(formUrl, {
                         method: "POST",
-                        body: formData,
-                        mode: "no-cors"
-                    });
+                        mode: "no-cors",
+                        headers: {
+                          "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: formData.toString()
+                      });
 
                         r(o.attendance)
                     } catch (f) {
