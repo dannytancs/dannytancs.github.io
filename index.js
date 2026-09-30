@@ -18065,33 +18065,17 @@ Error generating stack: ` + o.message + `
                 title: "Day Program",
                 subtitle: "What we have prepared for you",
                 events: [{
-                    time: "4:30 PM",
+                    time: "5:45 PM",
                     title: "Guest Arrival",
                     description: "Welcome and reception"
                 }, {
-                    time: "5:00 PM",
-                    title: "Ceremony",
-                    description: "Civil wedding"
-                }, {
                     time: "6:00 PM",
-                    title: "Cocktail",
-                    description: "Aperitifs and drinks"
+                    title: "Cocktail hour",
+                    description: "TBD"
                 }, {
-                    time: "8:00 PM",
-                    title: "Dinner",
-                    description: "Wedding banquet"
-                }, {
-                    time: "10:30 PM",
-                    title: "First Dance",
-                    description: "The newlyweds' dance"
-                }, {
-                    time: "11:00 PM",
-                    title: "Party",
-                    description: "Let's dance!"
-                }, {
-                    time: "2:30 AM",
-                    title: "End",
-                    description: "Goodbye"
+                    time: "7:00 PM",
+                    title: "Reception",
+                    description: "TBD"
                 }]
             },
             gifts: {
@@ -18109,7 +18093,7 @@ Error generating stack: ` + o.message + `
                 title: "Event Details",
                 description: "We can't wait to celebrate this special day with you. Here's everything you need to know.",
                 ceremony: "Wedding Ceremony",
-                ceremonyDesc: "Join us as we exchange our vows in an intimate ceremony surrounded by our loved ones.",
+                ceremonyDesc: "Join us for an evening of celebration, laughter, and joy as we celebrate our special day together.",
                 openMaps: "Open in Maps",
                 addCalendar: "Add to Calendar",
                 dressCode: "Dress Code",
@@ -19367,7 +19351,7 @@ Error generating stack: ` + o.message + `
     const eR = () => {
         const { t: e } = yr()
             , t = {
-                time: "7:00 PM",
+                time: "5:45 PM",
                 date: "2027-10-22",
                 venue: "The River Café",
                 address: "1 Water St",
