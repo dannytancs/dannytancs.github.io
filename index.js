@@ -30671,18 +30671,47 @@ ${v}`
                         o.dietaryOptions.fruitAllergy && h.push(a.rsvp.dietary.fruitAllergy),
                         o.dietaryOther.trim() && h.push(o.dietaryOther.trim());
                     try {
-                        const { error: f } = await L2.functions.invoke("submit-rsvp", {
-                            body: {
-                                full_name: o.name.trim(),
-                                email: o.email.trim() || null,
-                                attendance: o.attendance,
-                                number_of_guests: parseInt(o.guests),
-                                dietary_restrictions: h.length > 0 ? h.join(", ") : null,
-                                message: o.message.trim() || null
-                            }
+                        console.log({
+                            full_name: o.name.trim(),
+                            email: o.email.trim() || null,
+                            attendance: o.attendance,
+                            number_of_guests: parseInt(o.guests),
+                            dietary_restrictions: h.length > 0 ? h.join(", ") : null,
+                            message: o.message.trim() || null
                         });
-                        if (f)
-                            throw f;
+                        const formUrl =
+                        "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeJljSTGoKJTRfNN9gEogi_2-6-aZ8JhjZzQUw09MolY3BsOg/formResponse";
+                    
+                    const formData = new URLSearchParams();
+                    
+                    formData.append("entry.1165050466", o.name.trim()); // Full name
+                    formData.append("entry.1767371813", o.email.trim()); // Email
+                    formData.append("entry.479344532", h.length > 0 ? h.join(", ") : ""); // Allergy
+                    formData.append("entry.1200722482", o.message.trim()); // Message
+                    
+                    // Attendance
+                    formData.append("entry.1424325282", o.attendance);
+                    formData.append("entry.1424325282_sentinel", "");
+                    
+                    // Number of guests
+                    formData.append("entry.919998793", String(parseInt(o.guests, 10)));
+                    formData.append("entry.919998793_sentinel", "");
+                    
+                    // Google Forms submission metadata
+                    formData.append("dlut", String(Date.now()));
+                    formData.append("hud", "true");
+                    formData.append("fvv", "1");
+                    formData.append("partialResponse", "[null,null,\"-6192526181222947061\"]");
+                    formData.append("pageHistory", "0");
+                    formData.append("fbzx", "-6192526181222947061");
+                    formData.append("submissionTimestamp", String(Date.now()));
+                    
+                    await fetch(formUrl, {
+                        method: "POST",
+                        body: formData,
+                        mode: "no-cors"
+                    });
+
                         r(o.attendance)
                     } catch (f) {
                         console.error("RSVP submission error:", f),
@@ -31286,7 +31315,7 @@ END:VCALENDAR`
                     }
                 }), m.jsx("video", {
                     ref: r,
-                    src: "/rsvp-celebration.mp4",
+                    src: "/assets/media/rsvp-celebration.mp4",
                     className: "w-full h-full object-cover",
                     playsInline: !0,
                     autoPlay: !0,
