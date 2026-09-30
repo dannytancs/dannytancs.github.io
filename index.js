@@ -18092,7 +18092,7 @@ Error generating stack: ` + o.message + `
                 subtitle: "Join Us",
                 title: "Event Details",
                 description: "We can't wait to celebrate this special day with you. Here's everything you need to know.",
-                ceremony: "Wedding Ceremony",
+                ceremony: "Wedding Reception",
                 ceremonyDesc: "Join us for an evening of celebration, laughter, and joy as we celebrate our special day together.",
                 openMaps: "Open in Maps",
                 addCalendar: "Add to Calendar",
@@ -18335,7 +18335,7 @@ Error generating stack: ` + o.message + `
                         className: "absolute inset-0 bg-background/10"
                     })]
                 }), m.jsxs("div", {
-                    className: "text-center z-10 my-[140px]",
+                    className: "text-center z-10 my-[20px]",
                     children: [m.jsx("p", {
                         className: `text-xs md:text-sm tracking-[0.3em] uppercase mb-3 text-hero opacity-0 ${n ? "animate-luxury-reveal" : ""}`,
                         style: n ? {
@@ -18345,14 +18345,15 @@ Error generating stack: ` + o.message + `
                     }), m.jsxs("h1", {
                         className: `font-script text-5xl md:text-6xl lg:text-7xl mb-2 text-primary-foreground opacity-0 ${n ? "animate-luxury-reveal" : ""}`,
                         style: n ? {
-                            animationDelay: "0.1s"
+                            animationDelay: "0.1s",
+                            "margin-top": "30px",
                         } : void 0,
                         children: ["Emily ", m.jsx("span", {
                             className: "mx-2 text-amber-300",
                             children: "&"
                         }), " Danny"]
                     }), m.jsxs("div", {
-                        className: "flex items-center justify-center gap-4 md:my-8 my-[5px]",
+                        className: "flex items-center justify-center gap-4 my-[5px]",
                         children: [m.jsx("span", {
                             className: `h-px w-12 md:w-20 text-secondary-foreground bg-green-900 origin-right opacity-0 ${n ? "animate-line-expand" : ""}`,
                             style: n ? {
@@ -18375,7 +18376,7 @@ Error generating stack: ` + o.message + `
                         style: n ? {
                             animationDelay: "0.5s",
                             "font-weight": "bold",
-                            "font-size": "medium"
+                            "font-size": "medium",
                         } : void 0,
                         children: a.hero.date
                     })]
@@ -18624,7 +18625,7 @@ Error generating stack: ` + o.message + `
                 }), m.jsxs("div", {
                     className: "max-w-5xl mx-auto px-4 py-[40px] bg-purple-50 relative z-10",
                     children: [m.jsxs("div", {
-                        className: "text-center mb-16 animate-fade-in",
+                        className: "text-center mb-4 animate-fade-in",
                         children: [m.jsx("h2", {
                             className: "font-script text-5xl md:text-6xl text-foreground mb-2",
                             children: e.program.title
@@ -18637,15 +18638,14 @@ Error generating stack: ` + o.message + `
                         children: [m.jsxs("div", {
                             className: "hidden md:block",
                             children: [m.jsx("div", {
-                                className: "absolute top-16 left-0 right-0 h-px bg-border"
-                            }), m.jsx("div", {
-                                className: "grid grid-cols-7 gap-2",
+                                className: "grid gap-2",
                                 children: t.map((r, n) => {
                                     const s = sm[n] || wn;
                                     return m.jsxs("div", {
                                         className: "flex flex-col items-center text-center group animate-fade-in",
                                         style: {
-                                            animationDelay: `${n * .1}s`
+                                            animationDelay: `${n * .1}s`,
+                                            "margin-top": `20px`
                                         },
                                         children: [m.jsx("div", {
                                             className: "bg-primary text-primary-foreground px-3 py-1.5 rounded-full text-sm font-medium mb-4 group-hover:bg-accent transition-colors duration-300",
@@ -30701,7 +30701,7 @@ ${v}`
                         start: "20271022T190000",
                         end: "20271022T230000",
                         location: "The River Café",
-                        description: "Wedding Ceremony"
+                        description: "Wedding Reception"
                     }
                         , h = `BEGIN:VCALENDAR
 VERSION:2.0
