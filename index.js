@@ -18035,8 +18035,8 @@ Error generating stack: ` + o.message + `
     const WT = {
         en: {
             hero: {
-                gettingMarried: "We're Getting Married",
-                date: "October 22 2027",
+                gettingMarried: "YOU ARE INVITED TO CELEBRATE THE MARRIAGE OF",
+                date: "October 22, 2027",
                 confirmAttendance: "Confirm Attendance"
             },
             story: {
@@ -18353,7 +18353,7 @@ Error generating stack: ` + o.message + `
                 }), m.jsxs("div", {
                     className: "text-center z-10 my-[140px]",
                     children: [m.jsx("p", {
-                        className: `text-xs md:text-sm tracking-[0.3em] uppercase mb-3 text-violet-950 opacity-0 ${n ? "animate-luxury-reveal" : ""}`,
+                        className: `text-xs md:text-sm tracking-[0.3em] uppercase mb-3 text-hero opacity-0 ${n ? "animate-luxury-reveal" : ""}`,
                         style: n ? {
                             animationDelay: "0s"
                         } : void 0,
@@ -18387,9 +18387,11 @@ Error generating stack: ` + o.message + `
                             } : void 0
                         })]
                     }), m.jsx("p", {
-                        className: `text-xs md:text-sm tracking-[0.2em] uppercase my-0 py-[6px] text-secondary-foreground opacity-0 ${n ? "animate-luxury-reveal" : ""}`,
+                        className: `text-xs md:text-sm tracking-[0.2em] uppercase my-0 py-[6px] text-secondary-foreground text-hero opacity-0 ${n ? "animate-luxury-reveal" : ""}`,
                         style: n ? {
-                            animationDelay: "0.5s"
+                            animationDelay: "0.5s",
+                            "font-weight": "bold",
+                            "font-size": "medium"
                         } : void 0,
                         children: a.hero.date
                     })]
@@ -18621,7 +18623,7 @@ Error generating stack: ` + o.message + `
                             children: m.jsx("img", {
                                 alt: "Wedding doves",
                                 className: "w-80 md:w-[400px] lg:w-[500px] h-auto",
-                                src: "/assets/images/train.png"
+                                src: "/assets/images/river_cafe.png"
                             })
                         })]
                     })]
@@ -31360,7 +31362,7 @@ END:VCALENDAR`
                     children: m.jsx("img", {
                         alt: "Floral divider",
                         className: "w-80 md:w-[500px] lg:w-[600px] h-auto shadow-none",
-                        src: "/assets/images/flowers.png"
+                        src: "/assets/images/us.png"
                     })
                 }), m.jsx(QT, {}), m.jsx(YT, {}), m.jsx(XT, {}), m.jsx(eR, {}), m.jsx(D2, {
                     submitted: s,

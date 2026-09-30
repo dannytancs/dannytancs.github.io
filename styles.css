@@ -2344,9 +2344,9 @@ body {
     color: rgb(196 181 253 / var(--tw-text-opacity, 1))
 }
 
-.text-violet-950 {
+.text-hero {
     --tw-text-opacity: 1;
-    color: rgb(46 16 101 / var(--tw-text-opacity, 1))
+    color: rgb(253 196 217 / var(--tw-text-opacity, 1))
 }
 
 .text-wedding-accent {
