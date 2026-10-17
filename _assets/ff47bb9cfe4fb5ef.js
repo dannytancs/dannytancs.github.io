@@ -1,0 +1,10 @@
+(globalThis["webpackChunk_canva_web"] = globalThis["webpackChunk_canva_web"] || []).push([[1677],{
+
+/***/ 159315:
+function(_,__,__webpack_require__){__webpack_require__.n_x=__webpack_require__.n;const __web_req__=__webpack_require__;__web_req__(765703);__web_req__(339881);globalThis._5f74ec40302898c5a55451c9fbd04240=globalThis._5f74ec40302898c5a55451c9fbd04240||{};(function(__c){var wAd=function(a){a={TF:__c.oU(1,a),q3:__c.AU(2,"TextAttributes")};return __c.DU(a)},yAd=function(){return{...xAd,"font-family":__c.ti.ub["font-family"],color:"#000000"}},zAd=function(a){switch(a){case 1:return{TF:1};case 2:return{TF:2,q3:yAd()};case 3:return{TF:3,q3:yAd()};case 4:return{TF:4,q3:yAd(),format:1};default:throw Error(`Unsupported signature field type: ${a}`);}},AAd=/^[^\s@]+@[^\s@]+\.[^\s@]+$/,BAd={MRa:__c.iU(1,__c.CU(__c.DU({EGa:__c.vU(1,AAd),fullName:__c.pU(2),color:__c.pU(3,/^#[0-9a-fA-F]{6}$/)})))},
+CAd={TF:__c.oU(1,1)},DAd=__c.DU(CAd),EAd=wAd(2),FAd=wAd(3),GAd={TF:__c.oU(1,4),q3:__c.AU(2,"TextAttributes"),format:__c.fU(__c.sU(3,1,2,3),1)},HAd={gla:__c.vU(1),Pd:__c.IU(2,{TF:void 0},DAd,EAd,FAd,__c.DU(GAd))},IAd={document:__c.lU.of(BAd),C:__c.lU.of(HAd)};var xAd={"font-weight":void 0,"font-style":void 0,"font-kerning":void 0,"font-feature-liga":void 0,"font-feature-clig":void 0,"font-feature-calt":void 0,"font-size-modifier":void 0,"vertical-align":void 0,"fill-id":void 0,decoration:void 0,strikethrough:void 0,kerning:void 0,link:void 0,"start-us":void 0,"font-size":void 0,leading:void 0,spacing:void 0,direction:void 0,tracking:void 0,"text-transform":void 0,"text-align":void 0,"head-indent":void 0,"list-marker":void 0,"list-level":void 0,"list-number-set":void 0,
+style:void 0,semantics:void 0},JAd=()=>({MRa:new Map});__c.uid={WPc:1,bQc:{UPc:1,mSc:2,dVc:3},rQc:AAd,TTc:{rPc:1,uRc:2,TQc:3,TPc:4},f0a:JAd,Ji:()=>({bZc(a){var b=new Map(a.MRa);a.gla!=null&&a.oFc!=null&&b.set(a.gla,a.oFc);return{data:{C:{gla:a.gla,Pd:zAd(a.type)},document:{...JAd(),MRa:b}},J:{width:a.gla!=null?120:220,height:55}}}}),Sd:__c.JU(IAd)};
+}).call(globalThis,globalThis._5f74ec40302898c5a55451c9fbd04240);}
+
+}])
+//# sourceMappingURL=sourcemaps/ff47bb9cfe4fb5ef.js.map
