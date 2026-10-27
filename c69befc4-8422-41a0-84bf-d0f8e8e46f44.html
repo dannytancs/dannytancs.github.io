@@ -55,7 +55,6 @@
         <meta property="og:image" content="assets/images/d5b7774bf47c335dd8fd486892e2036b.jpg"/>
         <meta property="og:type" content="website">
         <link rel="shortcut icon" href="assets/images/2d0b56e7e51cf11036ad8734bdb67e2d.png">
-        <link rel="apple-touch-icon" href="assets/images/725b756a69a7d4c235070e51acd85560.png" sizes="180x180">
         <script nonce="dc369a8f-dd8f-4b7e-83f2-523de36e225a">
             window['__canva_website_bootstrap__'] = JSON.parse('{"A":"DAHXi1R3WYs","B":"eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwia2lkIjoia2lkLTE3Nzg0NzAzNjEzOTQifQ..IXLhKfqINKBEACnN.XmVes78iUKsEVxP0zYcV7GNr6wvOe2Zgzj-ynlhBgV-73KUkfi2SF5ElqNtnnK6yjBC22aF0Nw.hPIiYZNc8VN9fUNanQ0keg"}');
         </script>
@@ -152,9 +151,55 @@
                     ['touchend', 'click', 'scroll'].forEach(function (e) { document.addEventListener(e, again, true); });
                 }
 
+
+                // Typewriter reveal for the hero date: clips the text (left to right, one character at a time)
+                // without touching the DOM, so Canva's renderer is unaffected. Starts when the envelope is clicked.
+                var TYPE_TEXT = 'October 22, 2027', TYPE_STEP = 95, TYPE_DELAY = 650;
+                var typeStarted = false;
+                var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                function findTypeEl() {
+                    var ps = document.querySelectorAll('p');
+                    for (var i = 0; i < ps.length; i++) { if (ps[i].textContent.trim() === TYPE_TEXT) return ps[i]; }
+                    return null;
+                }
+                function hideType(el, pct) { el.style.clipPath = 'inset(-20px ' + pct + '% -20px -20px)'; }
+                // Canva re-renders the page while it loads, so keep re-hiding the date until the envelope is clicked.
+                (function prepType() {
+                    if (reduceMotion) return;
+                    var tries = 0, t = setInterval(function () {
+                        if (typeStarted || ++tries > 600) { clearInterval(t); return; }
+                        var e = findTypeEl();
+                        if (e && !e.style.clipPath) hideType(e, 100);
+                    }, 50);
+                })();
+                function startType() {
+                    if (reduceMotion) return;
+                    typeStarted = true;
+                    var el = findTypeEl();
+                    if (!el) return;
+                    var chars = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
+                    while ((n = w.nextNode())) { for (var o = 0; o < n.data.length; o++) chars.push([n, o]); }
+                    if (!chars.length) { el.style.clipPath = ''; return; }
+                    var pr = el.getBoundingClientRect(), r = document.createRange(), pcts = [];
+                    for (var k = 0; k < chars.length; k++) {
+                        r.setStart(chars[0][0], chars[0][1]);
+                        r.setEnd(chars[k][0], chars[k][1] + 1);
+                        var right = r.getBoundingClientRect().right;
+                        pcts.push(Math.max(0, Math.min(100, (pr.right - right) / pr.width * 100)));
+                    }
+                    hideType(el, 100);
+                    var i = 0;
+                    setTimeout(function step() {
+                        if (i >= pcts.length) { el.style.clipPath = ''; return; }
+                        hideType(el, pcts[i++]);
+                        setTimeout(step, TYPE_STEP);
+                    }, TYPE_DELAY);
+                }
+
                 // Clicking the envelope: remove the overlay and start the music (loops forever)
                 intro.addEventListener('click', function () {
                     watchVideos();
+                    startType();
                     audio.play().catch(function () {});
                     btn.style.display = 'flex';
                     intro.style.opacity = '0';
